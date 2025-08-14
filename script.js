@@ -257,7 +257,7 @@ function calculateTotalElevation()
 
     document.getElementById("orography_factor").textContent = OrographyFactor;
 
-    if (OrographyFactor =< 1.0)
+    if (OrographyFactor <= 1.0)
     {
         document.getElementById("orography_factor_comment").textContent = "Site is considered flat. Standard pieces may be used";
     } 
