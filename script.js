@@ -257,15 +257,18 @@ function calculateTotalElevation()
 
     document.getElementById("orography_factor").textContent = OrographyFactor;
 
-    if (OrographyFactor < 1.0)
+    if (OrographyFactor =< 1.0)
     {
-        document.getElementById("orography_factor_comment").textContent = "c0(z) <1.0";
-    } else if (OrographyFactor > 1.15)
+        document.getElementById("orography_factor_comment").textContent = "Site is considered flat. Standard pieces may be used";
+    } 
+    else if (OrographyFactor > 1.15)
     {
-        document.getElementById("orography_factor_comment").textContent = "A detailed analysis is required.";
-    } else if (OrographyFactor >= 1.0 && OrographyFactor <= 1.15) {
-        document.getElementById("orography_factor_comment").textContent = "Standard pieces cannot be used without an individual stability study.";
-    } else
+        document.getElementById("orography_factor_comment").textContent = "Site is NOT flat. A detailed analysis is required. Standard pieces may not be used without an individual stability study.";
+    } 
+    else if (OrographyFactor > 1.0 && OrographyFactor <= 1.15) {
+        document.getElementById("orography_factor_comment").textContent = "Site is NOT flat. Standard pieces may not be used without an individual stability study.";
+    } 
+    else
     {
         document.getElementById("orography_factor_comment").textContent = "";
     }
