@@ -33,7 +33,7 @@ function calculate()
 
             } else
             {
-                alert('Nie można znaleźć współrzędnych dla podanego adresu.');
+                alert('Your address is not correct. Please try again.');
             }
         })
         .catch(error => console.error('Error:', error));
@@ -262,10 +262,12 @@ function calculateTotalElevation()
         document.getElementById("orography_factor_comment").textContent = "c0(z) <1.0";
     } else if (OrographyFactor > 1.15)
     {
-        document.getElementById("orography_factor_comment").textContent = "Wymagana szczegółowa analiza";
+        document.getElementById("orography_factor_comment").textContent = "A detailed analysis is required.";
+    } else if (OrographyFactor >= 1.0 && OrographyFactor <= 1.15) {
+        document.getElementById("orography_factor_comment").textContent = "Standard pieces cannot be used without an individual stability study.";
     } else
     {
-        document.getElementById("orography_factor_comment").textContent = ""; // Wyczyść komentarz, jeśli nie spełniono żadnego warunku
+        document.getElementById("orography_factor_comment").textContent = "";
     }
     var OrographyFactorFormatted = OrographyFactor.toFixed(2);
     document.getElementById("orography_factor").textContent = OrographyFactorFormatted;
